@@ -10,8 +10,6 @@ let theme = createTheme({
     },
   },
   typography: {
-    htmlFontSize: 10,
-    fontSize: 16,
     fontFamily: '"Poppins", "Helvetica", "Arial", sans-serif',
   },
   components: {
@@ -22,6 +20,30 @@ let theme = createTheme({
           backgroundColor: "#34C94B",
           "&:hover": {
             backgroundColor: "#28a745", // darker green
+          },
+        },
+      },
+    },
+    MuiOutlinedInput: {
+      styleOverrides: {
+        root: {
+          "& fieldset": {
+            border: "none",
+          },
+          "&:hover fieldset": {
+            border: "none",
+          },
+          "&.Mui-focused fieldset": {
+            border: "none",
+          },
+        },
+      },
+    },
+    MuiInputLabel: {
+      styleOverrides: {
+        root: {
+          "&.Mui-focused": {
+            color: "#000",
           },
         },
       },
