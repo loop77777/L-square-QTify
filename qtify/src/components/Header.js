@@ -13,7 +13,10 @@ const Header = () => {
       bgcolor={"green"}
       px="1rem"
     >
-      <h1>QTify</h1>
+      <h1>QTify Icon</h1>
+      {/* <div>
+        <img src={"../Qtify-icon.jpeg"} alt="QTify" width="100px" height="100px" />
+      </div> */}
       <Box
         sx={{
           display: "flex",

@@ -1,18 +1,18 @@
-import { createTheme } from "@mui/material/styles";
+import { createTheme, responsiveFontSizes } from "@mui/material/styles";
 
-export const theme = createTheme({
+let theme = createTheme({
   palette: {
     primary: {
-      main: "#34C94B",
+      main: "#34C94B", // green
     },
     background: {
-      default: "#121212",
+      default: "#121212", // black
     },
   },
   typography: {
     htmlFontSize: 10,
     fontSize: 16,
-    fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+    fontFamily: '"Poppins", "Helvetica", "Arial", sans-serif',
   },
   components: {
     MuiButton: {
@@ -21,10 +21,13 @@ export const theme = createTheme({
           color: "#121212",
           backgroundColor: "#34C94B",
           "&:hover": {
-            backgroundColor: "#28a745",
+            backgroundColor: "#28a745", // darker green
           },
         },
       },
     },
   },
 });
+
+theme = responsiveFontSizes(theme);
+export default theme;
