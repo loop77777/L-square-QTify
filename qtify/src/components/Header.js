@@ -1,8 +1,10 @@
 import React from "react";
 import { Button, TextField, Box, Icon } from "@mui/material";
+import { useMediaQuery } from "@mui/material";
 import SearchOutlined from "@mui/icons-material/SearchOutlined";
 
 const Header = () => {
+  const matches = useMediaQuery("(max-width:900px)"); // 600px
   return (
     <Box
       sx={{
@@ -29,8 +31,9 @@ const Header = () => {
           aria-label="Search an album of your choice"
           sx={{
             borderRight: "1px solid black",
-            width: "20rem",
-          }}          
+            width: matches ? "10rem" : "20rem",
+          }}
+          size="small"
         />
         <Icon sx={{ p: "0.5rem" }}>
           <SearchOutlined />
