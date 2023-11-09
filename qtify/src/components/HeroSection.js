@@ -15,7 +15,7 @@ const HeroSection = () => {
         px: "1rem",
       }}
     >
-      <Box sx={{fontWeight:"bold"}}>
+      <Box sx={{fontWeight:"bold", textAlign:"center"}}>
         <Typography variant="h3">100 Thousand Songs, ad-free</Typography>
         <Typography variant="h3">Over thousands podcast episodes</Typography>
       </Box>

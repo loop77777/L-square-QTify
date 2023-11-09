@@ -1,10 +1,17 @@
 import { Box, Typography } from "@mui/material";
 import React from "react";
 
-const AlbumCard = () => {
+const AlbumCard = ({ img, follows, title }) => {
   return (
     <Box m={2} width={"min-content"}>
-      <Box bgcolor={"white"} sx={{ display: "flex", flexDirection: "column" }}>
+      <Box
+        bgcolor={"white"}
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          borderRadius: "0.625rem",
+        }}
+      >
         <Box
           sx={{
             width: "9rem",
@@ -12,10 +19,11 @@ const AlbumCard = () => {
           }}
         >
           <img
-            src="https://images.pexels.com/photos/1047442/pexels-photo-1047442.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800"
+            src={img}
             alt="album cover"
             width="100%"
             height="100%"
+            style={{ borderRadius: "0.625rem 0.625rem 0 0" }}
           />
         </Box>
         <Box
@@ -24,16 +32,16 @@ const AlbumCard = () => {
             color: "white",
             width: "fit-content",
             m: 1,
-            px: 1,
-            borderRadius: 1,
+            p: "0.25rem 0.5rem",
+            borderRadius: "0.625rem",
             fontSize: 12,
           }}
         >
-          100 Follows
+          {follows} Follows
         </Box>
       </Box>
       <Typography fontSize={"0.87rem"} color={"white"}>
-        New Bollywood
+        {title}
       </Typography>
     </Box>
   );

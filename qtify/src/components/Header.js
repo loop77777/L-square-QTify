@@ -30,7 +30,7 @@ const Header = () => {
           sx={{
             borderRight: "1px solid black",
             width: "20rem",
-          }}
+          }}          
         />
         <Icon sx={{ p: "0.5rem" }}>
           <SearchOutlined />
