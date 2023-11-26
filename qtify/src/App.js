@@ -26,7 +26,7 @@ function App() {
       <Header />
       <HeroSection />
       {/* <AlbumCard /> */}
-      <Section title={"Top Albums"} data={topAlbums} />
+      <Section title={"Top Albums"} data={topAlbums} enableAutoplay={true} />
       <Section title={"New Albums"} data={newAlbums} />
     </div>
   );
