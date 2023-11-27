@@ -3,7 +3,7 @@ import AlbumCard from "./AlbumCard";
 import { useState } from "react";
 import MySwiper from "./Swiper";
 
-const Section = ({ title, data, enableAutoplay }) => {
+const Section = ({ title, data, enableAutoplay, isAlbum }) => {
   const [isCollapsed, setIsCollapsed] = useState(false);
   return (
     <Box m={2}>
@@ -33,34 +33,20 @@ const Section = ({ title, data, enableAutoplay }) => {
       >
         {isCollapsed ? (
           <Box sx={{ width: "100%" }}>
-            <MySwiper slides={data} enableAutoplay={enableAutoplay} />
+            <MySwiper slides={data} enableAutoplay={enableAutoplay} isAlbum={isAlbum} />
           </Box>
         ) : (
           data.map((item) => (
             <AlbumCard
               key={item.id}
               img={item.image}
-              follows={item.follows}
+              follows={item.follows || item.likes}
               title={item.title}
+              songs={item.songs.length}
+              isAlbum={isAlbum}
             />
           ))
         )}
-        {/* <AlbumCard  />
-        <AlbumCard />
-        <AlbumCard />
-        <AlbumCard />
-        <AlbumCard />
-        <AlbumCard />
-        <AlbumCard />
-        <AlbumCard />
-        <AlbumCard />
-        <AlbumCard />
-        <AlbumCard />
-        <AlbumCard />
-        <AlbumCard />
-        <AlbumCard />
-        <AlbumCard />
-        <AlbumCard /> */}
       </Box>
     </Box>
   );

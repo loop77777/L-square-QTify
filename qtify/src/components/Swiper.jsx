@@ -1,9 +1,5 @@
 import React from "react";
-import {
-  Autoplay,
-  Navigation,
-  Virtual
-} from "swiper/modules";
+import { Autoplay, Navigation, Virtual } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { ReactComponent as PrevIcon } from "../assets/left-arrow.svg";
 import { ReactComponent as NextIcon } from "../assets/right-arrow.svg";
@@ -11,10 +7,9 @@ import { ReactComponent as NextIcon } from "../assets/right-arrow.svg";
 import { Box } from "@mui/material";
 import "swiper/css";
 import "swiper/css/navigation";
-import "swiper/css/pagination";
 import AlbumCard from "./AlbumCard";
 
-const MySwiper = ({ slides, enableAutoplay }) => {
+const MySwiper = ({ slides, enableAutoplay, isAlbum }) => {
   return (
     <Swiper
       modules={[Virtual, Navigation, Autoplay]}
@@ -48,16 +43,18 @@ const MySwiper = ({ slides, enableAutoplay }) => {
         <SwiperSlide key={item.id}>
           <AlbumCard
             img={item.image}
-            follows={item.follows}
+            follows={item.follows || item.likes}
             title={item.title}
+            songs={item?.songs?.length || null}
+            isAlbum={isAlbum}
           />
         </SwiperSlide>
       ))}
       <Box
         className="button-next"
         style={{
-          width: "2rem",
-          height: "2rem",
+          // width: "2rem",
+          // height: "2rem",
           position: "absolute",
           right: 0,
           top: "50%",
@@ -72,8 +69,8 @@ const MySwiper = ({ slides, enableAutoplay }) => {
       <Box
         className="button-prev"
         style={{
-          width: "2rem",
-          height: "2rem",
+          // width: "2rem",
+          // height: "2rem",
           position: "absolute",
           left: 0,
           top: "50%",

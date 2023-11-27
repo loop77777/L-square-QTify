@@ -1,9 +1,9 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Tooltip } from "@mui/material";
 import React from "react";
 
-const AlbumCard = ({ img, follows, title }) => {
-  return (
-    <Box m={2} width={"min-content"}>
+const AlbumCard = ({ img, follows, title, songs, isAlbum }) => {
+  const cardContent = (
+    <Box>
       <Box
         bgcolor={"white"}
         sx={{
@@ -37,12 +37,23 @@ const AlbumCard = ({ img, follows, title }) => {
             fontSize: 12,
           }}
         >
-          {follows} Follows
+          {follows} {isAlbum ? "Follows" : "Likes"}
         </Box>
       </Box>
       <Typography fontSize={"0.87rem"} color={"white"}>
         {title}
       </Typography>
+    </Box>
+  );
+  return (
+    <Box m={2} width={"min-content"}>
+      {isAlbum && songs ? (
+        <Tooltip title={`${songs} songs`} arrow placement="top">
+          {cardContent}
+        </Tooltip>
+      ) : (
+        cardContent
+      )}
     </Box>
   );
 };
