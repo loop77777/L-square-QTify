@@ -1,10 +1,8 @@
+import { Box, Button } from "@mui/material";
 import React from "react";
-import { Button, TextField, Box, Icon } from "@mui/material";
-import { useMediaQuery } from "@mui/material";
-import SearchOutlined from "@mui/icons-material/SearchOutlined";
+import SearchBox from "./SearchBox";
 
-const Header = () => {
-  const matches = useMediaQuery("(max-width:900px)"); // 600px
+const Header = ({albums}) => {
   return (
     <Box
       sx={{
@@ -16,29 +14,7 @@ const Header = () => {
       px="1rem"
     >
       <img src="Qtify-icon.svg" alt="QTify" width="100px" height="100px" />
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          border: "1px solid black",
-          borderRadius: "0.5rem",
-          bgcolor: "white",
-        }}
-      >
-        <TextField
-          label="Search an album of your choice"
-          aria-label="Search an album of your choice"
-          sx={{
-            borderRight: "1px solid black",
-            width: matches ? "10rem" : "20rem",
-          }}
-          size="small"
-        />
-        <Icon sx={{ p: "0.5rem" }}>
-          <SearchOutlined />
-        </Icon>
-      </Box>
+      <SearchBox albums={albums}  />
       <Box>
         <Button
           sx={{

@@ -32,7 +32,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
+      <Header albums={[...topAlbums, ...newAlbums]} />
       <HeroSection />
       <Section
         title={"Top Albums"}
